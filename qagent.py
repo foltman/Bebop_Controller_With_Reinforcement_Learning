@@ -15,20 +15,20 @@ class QAgent:
             self.rnd = random.seed(self.seed)
 
     def create_qmatrix(self, states_count, actions_count):
-        #Create matrix based on given dimensions
+    #Create matrix based on given dimensions
         qm = np.zeros((states_count, actions_count))
         self.qmatrix = qm
 
     def qmatrix_from_file(self, filename):
-	    #Load qmatrix from csv file
+    #Load qmatrix from csv file
         self.qmatrix = np.loadtxt(filename,dtype=float,delimiter=',')
 
     def qmatrix_from_list(self, list):
-    	#Load qmatrix from list of lists
+    #Load qmatrix from list of lists
         self.qmatrix = np.array(list)
 
     def save_qmatrix (self, filename):
-    	#Save qmatrix to csv file
+    #Save qmatrix to csv file
         f = open(filename, 'w')
         writer = csv.writer(f)
         writer.writerows(self.qmatrix)
